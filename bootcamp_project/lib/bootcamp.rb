@@ -1,70 +1,43 @@
 class Bootcamp
     def initialize(name, slogan, student_capacity)
-        @name
-        @slogan
-        @student_capacity
+        @name = name
+        @slogan = slogan
+        @student_capacity = student_capacity
+        @teachers = []
+        @students = []
+        @grades = Hash.new {|h,k| h[k] = []}
     end
 
     def name
         @name
     end
-
-    def name=(name)
-        @name = name
-    end
-
+    
     def slogan
         @slogan
-    end
-
-    def slogan=(slogan)
-
-    end
-
-    def student_capacity
-        @student_capacity
-    end
-
-    def student_capacity=(student_capacity)
-
     end
 
     def teachers
         @teachers
     end
 
-    def teachers=(teachers)
-
-    end
-
     def students
         @students
     end
 
-    def students=(students)
+    def hire(teacher)
+        teachers << teacher
+    end
 
+    def enroll(student)
+        if students.length < @student_capacity 
+            @students << student 
+        end
+        enrolled?(student)
+    end
+
+    def enrolled?(student)
+        students.include?(student)
     end
 
 
 end
-
-#     def hire()
-#     end
-
-#     def enroll()
-#     end
-
-#     def enrolled?()
-#     end
-
-#     def teacher_to_student_ratio()
-#     end
-
-
-
-
-
-# grades = Hash.new { |hash, k| hash[k]}
-
-
-# end
